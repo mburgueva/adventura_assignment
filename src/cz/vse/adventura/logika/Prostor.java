@@ -70,11 +70,11 @@ public class Prostor { //Space
     public boolean getJeZamceno(){
         return this.jeZamceno_bool;
     }
-     public void zamkni(){
+     public void zamknout(){
         this.jeZamceno_bool = true;
      }
 
-     public void odemkni(){
+     public void odemknout(){
         this.jeZamceno_bool = false;
      }
       @Override

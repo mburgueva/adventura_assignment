@@ -41,9 +41,9 @@ public class PrikazOdemkni implements IPrikaz {
         if (sousedniProstor == null) {
             return "Odsud nevedou dveře do prostoru " + prostor + "!"; //There's no door into the area from here.
         } else {
-            if (sousedniProstor.jeZamceno()) { //isLocked
-                if (plan.getBatoh().obsahujeVec(sousedniProstor.getKlic())) { //getTheKey
-                    sousedniProstor.zamknout(false); //lock
+            if (sousedniProstor.getJeZamceno()) { //isLocked
+                if (plan.getBatoh().obsahujeVec("klic")) { //getTheKey
+                    sousedniProstor.zamknout(); //lock
                     return "Podařilo se ti otevřít dveře do prostoru " // You managed to open the door to the space
                             + prostor + ". Nyní je cesta volná."; //Now the way is clear
                 } else {

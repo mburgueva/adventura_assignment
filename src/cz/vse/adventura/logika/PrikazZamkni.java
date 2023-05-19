@@ -36,21 +36,21 @@ public class PrikazZamkni implements IPrikaz {
 
         String prostor = parametry[0];
         // hledám zadaný prostor mezi východy
-        Prostor sousedniProstor = plan.getAktualniProstor().sousedniProstor(prostor); //nextSpace
+        Prostor sousedniProstor = plan.getAktualniProstor().vratSousedniProstor(prostor); //nextSpace
 
         if (sousedniProstor == null) {
             return "Odsud nevedou dveře do prostoru "+ prostor +" !";
         }
         else {
-            if (sousedniProstor.jeNezamceno()) { //isn't locked
-                if (plan.getBatoh().obsahujeVec(sousedniProstor.getKlic())) { //getTheKey
-                    sousedniProstor.odemknout(false); /unlock
+            if (!sousedniProstor.getJeZamceno()) { //isn't locked
+                if (plan.getBatoh().obsahujeVec("klic")) { //getTheKey
+                    sousedniProstor.odemknout(); //unlock
                     return "Podařilo se ti zavřit dveře do prostoru  "
                             + prostor + ". Nyní cesta není volná.";
                 }
                 else {
                     return "Pro zamčení dveří do "+ prostor +" potřebuješ mít "
-                            + "u sebe "+ prostor.getKlic().getNazev(); //getTheKey
+                            + "u sebe klic"; //getTheKey
                 }
             }
             else {

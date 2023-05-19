@@ -1,6 +1,7 @@
 package cz.vse.adventura.logika;
 
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -47,17 +48,38 @@ public class HerniPlan { //GamePlan
      */
     private void zalozProstoryHry() { //createGameSpaces
         // vytvářejí se jednotlivé prostory
-        Prostor loznice = new Prostor("ložnice", "ložnice s posteli a psacím stolem", false); //bedroom
-        Prostor obyvak = new Prostor("obyvák","obyvák s gaučem, konferenčním stolkem a TV", false); //livingRoom
-        Prostor predsin = new Prostor("předsíň","předsíň, ve které se nacházejí již sbalené věci", false); //hall
-        Prostor ulice = new Prostor("ulice","ulice, na které bydlím", true); //street
-        Prostor vecerka = new Prostor("večerka","večerka, kam chodím na nákup", false); //shop
-        Prostor autobusovaZastavka = new Prostor("autobusová zastávka", "autobusová zastávka u doma", false); //busStaton
-        Prostor bus119 = new Prostor("bus 119", "bus 119, který jede na letiště", false);
-        Prostor bus225 = new Prostor("bus 225", "bus 225, který jede do Velké Ohrady", false);
-        Prostor spatnaCesta = new Prostor("špatná cesta", "Pozor, špatná cesta, vrať se zpátky", false); //wrongWay
-        Prostor terminal1 = new Prostor("terminal 1", "terminal s lety mimo EU", false);
-        Prostor terminal2 = new Prostor("terminal 2", "terminal s lety po EU", false);
+        List<String> loznice_vec= new ArrayList<String>();
+        loznice_vec.add("postel");
+        loznice_vec.add("psací stůl");
+        List<String> obyvak_vec = new ArrayList<String>();
+        obyvak_vec.add("gauč");
+        obyvak_vec.add("konferenční stolek");
+        obyvak_vec.add("TV");
+        List<String> predsin_vec = new ArrayList<String>();
+        predsin_vec.add("kufr");
+        predsin_vec.add("batoh");
+        predsin_vec.add("klic");
+        predsin_vec.add("boty");
+        predsin_vec.add("brýle proti slunci");
+        List<String> ulice_vec = new ArrayList<String>();
+        List<String> vecerka_vec = new ArrayList<String>();
+        List<String> autobusovaZastavka_vec = new ArrayList<String>();
+        List<String> bus119_vec = new ArrayList<String>();
+        List<String> bus225_vec = new ArrayList<String>();
+        List<String> spatnaCesta_vec = new ArrayList<String>();
+        List<String> terminal1_vec = new ArrayList<String>();
+        List<String> terminal2_vec = new ArrayList<String>();
+        Prostor loznice = new Prostor("ložnice", "ložnice s posteli a psacím stolem", false, loznice_vec); //bedroom
+        Prostor obyvak = new Prostor("obyvák","obyvák s gaučem, konferenčním stolkem a TV", false, obyvak_vec); //livingRoom
+        Prostor predsin = new Prostor("předsíň","předsíň, ve které se nacházejí již sbalené věci", false, predsin_vec); //hall
+        Prostor ulice = new Prostor("ulice","ulice, na které bydlím", true, ulice_vec); //street
+        Prostor vecerka = new Prostor("večerka","večerka, kam chodím na nákup", false, vecerka_vec); //shop
+        Prostor autobusovaZastavka = new Prostor("autobusová zastávka", "autobusová zastávka u doma", false, autobusovaZastavka_vec); //busStaton
+        Prostor bus119 = new Prostor("bus 119", "bus 119, který jede na letiště", false, bus119_vec);
+        Prostor bus225 = new Prostor("bus 225", "bus 225, který jede do Velké Ohrady", false, bus225_vec);
+        Prostor spatnaCesta = new Prostor("špatná cesta", "Pozor, špatná cesta, vrať se zpátky", false, spatnaCesta_vec); //wrongWay
+        Prostor terminal1 = new Prostor("terminal 1", "terminal s lety mimo EU", false, terminal1_vec);
+        Prostor terminal2 = new Prostor("terminal 2", "terminal s lety po EU", false, terminal2_vec);
 
         // přiřazují se průchody mezi prostory (sousedící prostory)
         loznice.setVychod(obyvak); //Exit
@@ -83,6 +105,7 @@ public class HerniPlan { //GamePlan
 
         aktualniProstor = loznice;  // hra začíná v ložnici // currentSpace = bedroom
     }
+
     
     /**
      *  Metoda vrací odkaz na aktuální prostor, ve ktetém se hráč právě nachází.

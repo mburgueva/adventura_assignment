@@ -24,6 +24,7 @@ public class Prostor { //Space
     private String nazev; //name
     private String popis; //description
 
+    private List<String> veciVProstoru;
     private boolean jeZamceno_bool;
     private Set<Prostor> vychody;   // obsahuje sousední místnosti
 
@@ -35,10 +36,11 @@ public class Prostor { //Space
      * víceslovný název bez mezer.
      * @param popis Popis prostoru.
      */
-    public Prostor(String nazev, String popis, boolean jeZamceno_bool) {
+    public Prostor(String nazev, String popis, boolean jeZamceno_bool, List<String> veciVProstoru) {
         this.nazev = nazev; //name
         this.popis = popis; //description
         this.jeZamceno_bool = jeZamceno_bool;
+        this.veciVProstoru = veciVProstoru;
         vychody = new HashSet<>(); //exits
     }
 

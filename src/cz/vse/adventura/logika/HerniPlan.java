@@ -47,17 +47,17 @@ public class HerniPlan { //GamePlan
      */
     private void zalozProstoryHry() { //createGameSpaces
         // vytvářejí se jednotlivé prostory
-        Prostor loznice = new Prostor("ložnice", "ložnice s posteli a psacím stolem"); //bedroom
-        Prostor obyvak = new Prostor("obyvák","obyvák s gaučem, konferenčním stolkem a TV"); //livingRoom
-        Prostor predsin = new Prostor("předsíň","předsíň, ve které se nacházejí již sbalené věci"); //hall
-        Prostor ulice = new Prostor("ulice","ulice, na které bydlím"); //street
-        Prostor vecerka = new Prostor("večerka","večerka, kam chodím na nákup"); //shop
-        Prostor autobusovaZastavka = new Prostor("autobusová zastávka", "autobusová zastávka u doma"); //busStaton
-        Prostor bus119 = new Prostor("bus 119", "bus 119, který jede na letiště");
-        Prostor bus225 = new Prostor("bus 225", "bus 225, který jede do Velké Ohrady");
-        Prostor spatnaCesta = new Prostor("špatná cesta", "Pozor, špatná cesta, vrať se zpátky"); //wrongWay
-        Prostor terminal1 = new Prostor("terminal 1", "terminal s lety mimo EU");
-        Prostor terminal2 = new Prostor("terminal 2", "terminal s lety po EU");
+        Prostor loznice = new Prostor("ložnice", "ložnice s posteli a psacím stolem", false); //bedroom
+        Prostor obyvak = new Prostor("obyvák","obyvák s gaučem, konferenčním stolkem a TV", false); //livingRoom
+        Prostor predsin = new Prostor("předsíň","předsíň, ve které se nacházejí již sbalené věci", false); //hall
+        Prostor ulice = new Prostor("ulice","ulice, na které bydlím", true); //street
+        Prostor vecerka = new Prostor("večerka","večerka, kam chodím na nákup", false); //shop
+        Prostor autobusovaZastavka = new Prostor("autobusová zastávka", "autobusová zastávka u doma", false); //busStaton
+        Prostor bus119 = new Prostor("bus 119", "bus 119, který jede na letiště", false);
+        Prostor bus225 = new Prostor("bus 225", "bus 225, který jede do Velké Ohrady", false);
+        Prostor spatnaCesta = new Prostor("špatná cesta", "Pozor, špatná cesta, vrať se zpátky", false); //wrongWay
+        Prostor terminal1 = new Prostor("terminal 1", "terminal s lety mimo EU", false);
+        Prostor terminal2 = new Prostor("terminal 2", "terminal s lety po EU", false);
 
         // přiřazují se průchody mezi prostory (sousedící prostory)
         loznice.setVychod(obyvak); //Exit

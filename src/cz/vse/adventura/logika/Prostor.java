@@ -23,6 +23,8 @@ public class Prostor { //Space
 
     private String nazev; //name
     private String popis; //description
+
+    private boolean jeZamceno_bool;
     private Set<Prostor> vychody;   // obsahuje sousední místnosti
 
     /**
@@ -33,9 +35,10 @@ public class Prostor { //Space
      * víceslovný název bez mezer.
      * @param popis Popis prostoru.
      */
-    public Prostor(String nazev, String popis) {
+    public Prostor(String nazev, String popis, boolean jeZamceno_bool) {
         this.nazev = nazev; //name
         this.popis = popis; //description
+        this.jeZamceno_bool = jeZamceno_bool;
         vychody = new HashSet<>(); //exits
     }
 
@@ -64,6 +67,16 @@ public class Prostor { //Space
      * @param o object, který se má porovnávat s aktuálním
      * @return hodnotu true, pokud má zadaný prostor stejný název, jinak false
      */
+    public boolean getJeZamceno(){
+        return this.jeZamceno_bool;
+    }
+     public void zamkni(){
+        this.jeZamceno_bool = true;
+     }
+
+     public void odemkni(){
+        this.jeZamceno_bool = false;
+     }
       @Override
     public boolean equals(Object o) {
         // porovnáváme zda se nejedná o dva odkazy na stejnou instanci

@@ -59,14 +59,14 @@ public class Prostor { //Space
     }
 
 
-    /**
+    /*
      * Metoda equals pro porovnání dvou prostorů. Překrývá se metoda equals ze
      * třídy Object. Dva prostory jsou shodné, pokud mají stejný název. Tato
      * metoda je důležitá z hlediska správného fungování seznamu východů (Set).
      *
      * Bližší popis metody equals je u třídy Object.
      *
-     * @param o object, který se má porovnávat s aktuálním
+     * @param object, který se má porovnávat s aktuálním
      * @return hodnotu true, pokud má zadaný prostor stejný název, jinak false
      */
     public boolean getJeZamceno(){
@@ -78,6 +78,23 @@ public class Prostor { //Space
 
      public void odemknout(){
         this.jeZamceno_bool = false;
+     }
+
+     public List<String> getVeciVProstoru(){
+        return this.veciVProstoru;
+     }
+     public void poloz(String vec){
+        this.veciVProstoru.add(vec);
+     }
+
+     public boolean seber(String vec){
+         int index = this.veciVProstoru.indexOf(vec);
+         if (index >= 0) {
+             veciVProstoru.remove(index);
+             return true;
+         } else {
+             return false;
+         }
      }
       @Override
     public boolean equals(Object o) {

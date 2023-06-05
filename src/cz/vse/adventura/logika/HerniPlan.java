@@ -91,8 +91,8 @@ public class HerniPlan { //GamePlan
         obyvak.poloz(new Vec("konferenční_stolek", false));
         obyvak.poloz(new Vec("TV", false));
         predsin.poloz(new Vec("kufr", true)); //suitcase, can be taken
-        predsin.poloz(new Vec("klíče_od_bytu", true)); // keys from the apartment, can be taken
-        batoh.seberVec(new Vec("temporary", true));
+        predsin.poloz(new Vec("klíče", true)); // keys from the apartment, can be taken
+        batoh = new Batoh();
         aktualniProstor = loznice;  // hra začíná v ložnici // currentSpace = bedroom
     }
 

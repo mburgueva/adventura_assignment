@@ -24,7 +24,7 @@ public class Batoh implements ISeznamVeci { // batoh - backpack
     /**
      * Privátní konstruktor třídy Batoh.
      */
-    private Batoh() { //backpack
+    public Batoh() { //backpack
         seznamVeci = new ArrayList<Vec>(); //listOfThings
     }
 

@@ -1,10 +1,6 @@
 package cz.vse.adventura.logika;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Set;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 // Room with Things
 /**
@@ -24,7 +20,7 @@ public class Prostor { //Space
     private String nazev; //name
     private String popis; //description
 
-    private List<Vec> veciVProstoru;
+    private List<Vec> veciVProstoru = new ArrayList<>();
     private boolean jeZamceno_bool;
     private Set<Prostor> vychody;   // obsahuje sousední místnosti
 
@@ -36,11 +32,10 @@ public class Prostor { //Space
      * víceslovný název bez mezer.
      * @param popis Popis prostoru.
      */
-    public Prostor(String nazev, String popis, boolean jeZamceno_bool, List<Vec> veciVProstoru) {
+    public Prostor(String nazev, String popis, boolean jeZamceno_bool) {
         this.nazev = nazev; //name
         this.popis = popis; //description
         this.jeZamceno_bool = jeZamceno_bool;
-        this.veciVProstoru = veciVProstoru;
         vychody = new HashSet<>(); //exits
     }
 

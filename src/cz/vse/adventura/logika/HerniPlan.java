@@ -47,35 +47,18 @@ public class HerniPlan { //GamePlan
      */
     private void zalozProstoryHry() { //createGameSpaces
         // vytvářejí se jednotlivé prostory
-        List<String> loznice_vec= new ArrayList<String>();
-        loznice_vec.add("postel");
-        loznice_vec.add("psací stůl");
-        List<String> obyvak_vec = new ArrayList<String>();
-        obyvak_vec.add("gauč");
-        obyvak_vec.add("konferenční stolek");
-        obyvak_vec.add("TV");
-        List<String> predsin_vec = new ArrayList<String>();
-        predsin_vec.add("kufr");
-        predsin_vec.add("klic");
-        List<String> ulice_vec = new ArrayList<String>();
-        List<String> vecerka_vec = new ArrayList<String>();
-        List<String> autobusovaZastavka_vec = new ArrayList<String>();
-        List<String> bus119_vec = new ArrayList<String>();
-        List<String> bus225_vec = new ArrayList<String>();
-        List<String> spatnaCesta_vec = new ArrayList<String>();
-        List<String> terminal1_vec = new ArrayList<String>();
-        List<String> terminal2_vec = new ArrayList<String>();
-        Prostor loznice = new Prostor("ložnice", "ložnice s posteli a psacím stolem", false, loznice_vec); //bedroom
-        Prostor obyvak = new Prostor("obyvák","obyvák s gaučem, konferenčním stolkem a TV", false, obyvak_vec); //livingRoom
-        Prostor predsin = new Prostor("předsíň","předsíň, ve které se nacházejí kufr, klíče od bytu", false, predsin_vec); //hall
-        Prostor ulice = new Prostor("ulice","ulice, na které bydlíš", true, ulice_vec); //street
-        Prostor vecerka = new Prostor("večerka","večerka, kam chodíš na nákup", false, vecerka_vec); //shop
-        Prostor autobusovaZastavka = new Prostor("aut_zastávka", "autobusová zastávka u doma", false, autobusovaZastavka_vec); //busStaton
-        Prostor bus119 = new Prostor("bus_119", "bus 119, který jede na letiště", false, bus119_vec);
-        Prostor bus225 = new Prostor("bus_225", "bus 225, který jede do Velké Ohrady", false, bus225_vec);
-        Prostor spatnaCesta = new Prostor("špatná_cesta", "Pozor, špatná cesta, vrať se zpátky", false, spatnaCesta_vec); //wrongWay
-        Prostor terminal1 = new Prostor("terminal_1", "terminal s lety mimo EU", false, terminal1_vec);
-        Prostor terminal2 = new Prostor("terminal_2", "terminal s lety po EU", false, terminal2_vec);
+
+        Prostor loznice = new Prostor("ložnice", "ložnice s posteli a psacím stolem", false); //bedroom
+        Prostor obyvak = new Prostor("obyvák","obyvák s gaučem, konferenčním stolkem a TV", false); //livingRoom
+        Prostor predsin = new Prostor("předsíň","předsíň, ve které se nacházejí kufr, klíče od bytu", false); //hall
+        Prostor ulice = new Prostor("ulice","ulice, na které bydlíš", true); //street
+        Prostor vecerka = new Prostor("večerka","večerka, kam chodíš na nákup", false); //shop
+        Prostor autobusovaZastavka = new Prostor("aut_zastávka", "autobusová zastávka u doma", false); //busStaton
+        Prostor bus119 = new Prostor("bus_119", "bus 119, který jede na letiště", false);
+        Prostor bus225 = new Prostor("bus_225", "bus 225, který jede do Velké Ohrady", false);
+        Prostor spatnaCesta = new Prostor("špatná_cesta", "Pozor, špatná cesta, vrať se zpátky", false); //wrongWay
+        Prostor terminal1 = new Prostor("terminal_1", "terminal s lety mimo EU", false);
+        Prostor terminal2 = new Prostor("terminal_2", "terminal s lety po EU", false);
 
         prohravaciProstor = spatnaCesta;
         prohravaciProstor = vecerka;
@@ -102,13 +85,13 @@ public class HerniPlan { //GamePlan
         terminal2.setVychod(terminal1);
 
         //věci, které lze vložit do batohu
-        loznice.seber(new Vec("postel", false));
-        loznice.seber(new Vec("psací stůl", false));
-        obyvak.seber(new Vec("gauč", false));
-        obyvak.seber(new Vec("konferenční stolek", false));
-        obyvak.seber(new Vec("TV", false));
-        predsin.seber(new Vec("kufr", true)); //suitcase, can be taken
-        predsin.seber(new Vec("klíče od bytu", true)); // keys from the apartment, can be taken
+        loznice.poloz(new Vec("postel", false));
+        loznice.poloz(new Vec("psací stůl", false));
+        obyvak.poloz(new Vec("gauč", false));
+        obyvak.poloz(new Vec("konferenční stolek", false));
+        obyvak.poloz(new Vec("TV", false));
+        predsin.poloz(new Vec("kufr", true)); //suitcase, can be taken
+        predsin.poloz(new Vec("klíče od bytu", true)); // keys from the apartment, can be taken
 
         aktualniProstor = loznice;  // hra začíná v ložnici // currentSpace = bedroom
     }

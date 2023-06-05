@@ -37,7 +37,7 @@ public class PrikazPoloz implements IPrikaz {
 
         try {
             Vec vec = plan.getBatoh().odeberVec(nazev);
-            plan.getAktualniProstor().seber(vec); //insertThing
+            plan.getAktualniProstor().seberVec(vec); //insertThing
             return "Věc '" + nazev + "' byla položena v aktuálním prostoru.";
         } catch (IllegalArgumentException exception) {
             return "Tuto věc v batohu nemáš.";

@@ -32,7 +32,7 @@ public class HerniPlan { //GamePlan
     private Prostor aktualniProstor; //currentSpace
     private Prostor viteznyProstor; //winningSpace
     private Prostor prohravaciProstor; //losingSpace
-    private Batoh batoh; //backpack
+    public Batoh batoh; //backpack
     
      /**
      *  Konstruktor který vytváří jednotlivé prostory a propojuje je pomocí východů.
@@ -86,13 +86,13 @@ public class HerniPlan { //GamePlan
 
         //věci, které lze vložit do batohu
         loznice.poloz(new Vec("postel", false));
-        loznice.poloz(new Vec("psací stůl", false));
+        loznice.poloz(new Vec("psací_stůl", false));
         obyvak.poloz(new Vec("gauč", false));
-        obyvak.poloz(new Vec("konferenční stolek", false));
+        obyvak.poloz(new Vec("konferenční_stolek", false));
         obyvak.poloz(new Vec("TV", false));
         predsin.poloz(new Vec("kufr", true)); //suitcase, can be taken
-        predsin.poloz(new Vec("klíče od bytu", true)); // keys from the apartment, can be taken
-
+        predsin.poloz(new Vec("klíče_od_bytu", true)); // keys from the apartment, can be taken
+        batoh.seberVec(new Vec("temporary", true));
         aktualniProstor = loznice;  // hra začíná v ložnici // currentSpace = bedroom
     }
 

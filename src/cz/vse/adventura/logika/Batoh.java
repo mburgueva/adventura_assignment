@@ -25,7 +25,7 @@ public class Batoh implements ISeznamVeci { // batoh - backpack
      * Privátní konstruktor třídy Batoh.
      */
     private Batoh() { //backpack
-        seznamVeci = new ArrayList<>(); //listOfThings
+        seznamVeci = new ArrayList<Vec>(); //listOfThings
     }
 
     /**
@@ -55,7 +55,9 @@ public class Batoh implements ISeznamVeci { // batoh - backpack
         public boolean obsahujeVec(String nazev) { //containsThing
             return veci.containsKey(nazev);
         }
-        public Vec seber(Vec vec) { //insertTheThing
+
+
+    public Vec seberVec(Vec vec) { //insertTheThing
             veci.put(vec.getNazev(), vec); //things.put(getName), thing
             if (veci.containsKey(vec.getNazev()))
                 return vec;

@@ -24,7 +24,7 @@ public class Prostor { //Space
     private String nazev; //name
     private String popis; //description
 
-    private List<String> veciVProstoru;
+    private List<Vec> veciVProstoru;
     private boolean jeZamceno_bool;
     private Set<Prostor> vychody;   // obsahuje sousední místnosti
 
@@ -36,7 +36,7 @@ public class Prostor { //Space
      * víceslovný název bez mezer.
      * @param popis Popis prostoru.
      */
-    public Prostor(String nazev, String popis, boolean jeZamceno_bool, List<String> veciVProstoru) {
+    public Prostor(String nazev, String popis, boolean jeZamceno_bool, List<Vec> veciVProstoru) {
         this.nazev = nazev; //name
         this.popis = popis; //description
         this.jeZamceno_bool = jeZamceno_bool;
@@ -80,10 +80,10 @@ public class Prostor { //Space
         this.jeZamceno_bool = false;
      }
 
-     public List<String> getVeciVProstoru(){
+     public List<Vec> getVeciVProstoru(){
         return this.veciVProstoru;
      }
-     public void poloz(String vec){
+     public void poloz(Vec vec){
         this.veciVProstoru.add(vec);
      }
 
@@ -154,6 +154,9 @@ public class Prostor { //Space
                 + popisVychodu(); //descriptionOfExit
     }
 
+    public String getPopis(){
+        return this.popis;
+    }
     /**
      * Vrací textový řetězec, který popisuje sousední východy, například:
      * "vychody: hala ".

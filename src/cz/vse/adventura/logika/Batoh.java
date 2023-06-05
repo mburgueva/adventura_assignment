@@ -65,7 +65,12 @@ public class Batoh implements ISeznamVeci { // batoh - backpack
             return veci.remove(nazev);
         }
         public Vec odeberVec(Vec vec) { //removeTheThing
-            return null;
+            return veci.remove(vec.getNazev());
+        }
+
+        public List<Vec> getObsah(){
+            List<Vec> vratitVec = new ArrayList<Vec>(this.veci.values());
+            return vratitVec;
         }
         public Vec odebranaVec(Vec vec) { // removedThing
             return null;

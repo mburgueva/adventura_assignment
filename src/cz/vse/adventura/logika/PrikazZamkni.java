@@ -2,7 +2,10 @@ package cz.vse.adventura.logika;
 
 /**
  *  Třída PrikazZamkni implementuje pro hru příkaz zamkni.
+ *  Tato třída je součástí jednoduché textové hry.
  *
+ *@author     Madina Burgueva
+ *@version    pro školní rok 2022/2023
  */
 public class PrikazZamkni implements IPrikaz {
     private static final String NAZEV = "zamkni"; //lock

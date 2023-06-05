@@ -87,7 +87,7 @@ public class Prostor { //Space
         this.veciVProstoru.add(vec);
      }
 
-     public boolean seber(String vec){
+     public boolean seber(Vec vec){
          int index = this.veciVProstoru.indexOf(vec);
          if (index >= 0) {
              veciVProstoru.remove(index);

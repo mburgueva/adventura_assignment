@@ -2,7 +2,10 @@ package cz.vse.adventura.logika;
 
 /**
  *  Třída PrikazOdemkni implementuje pro hru příkaz odemkni.
+ *  Tato třída je součástí jednoduché textové hry.
  *
+ *@author     Madina Burgueva
+ *@version    pro školní rok 2022/2023
  */
 public class PrikazOdemkni implements IPrikaz {
     private static final String NAZEV = "odemkni"; //unlock

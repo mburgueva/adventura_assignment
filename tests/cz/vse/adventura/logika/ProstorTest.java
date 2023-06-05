@@ -1,6 +1,7 @@
 package cz.vse.adventura.logika;
 
 
+import org.junit.Test;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -30,8 +31,8 @@ public class ProstorTest
      * nemusí odpovídat vlastní hře, 
      */
     @Test
-    public  void testLzeProjit() {		
-        Prostor prostor1 = new Prostor("hala", "vstupní hala budovy VŠE na Jižním městě");
+    public  void testLzeProjit() {
+        Prostor loznice = new Prostor("ložnice", "vstupní hala budovy VŠE na Jižním městě", false);
         Prostor prostor2 = new Prostor("bufet", "bufet, kam si můžete zajít na svačinku");
         prostor1.setVychod(prostor2);
         prostor2.setVychod(prostor1);

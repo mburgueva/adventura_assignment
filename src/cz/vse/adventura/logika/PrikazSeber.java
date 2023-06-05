@@ -1,5 +1,12 @@
 package cz.vse.adventura.logika;
 
+/**
+ *  Třída PrikazSeber implementuje pro hru příkaz seber.
+ *  Tato třída je součástí jednoduché textové hry.
+ *
+ *@author     Madina Burgueva
+ *@version    pro školní rok 2022/2023
+ */
 class PrikazSeber implements IPrikaz {
     private static final String NAZEV = "seber"; //pick up, grab
     private HerniPlan plan;
@@ -32,8 +39,8 @@ class PrikazSeber implements IPrikaz {
             return exception.getMessage();
         }
 
-        return "Věc '" + nazev + "' je nyní v batohu.\n" +
-                this.plan.getPopisObsahuBatohu(); //description of backpack contents
+        return "Věc '" + nazev + "' je nyní u tebe.\n" +
+                this.plan.getBatoh(); //description of backpack contents
     }
 
     @Override

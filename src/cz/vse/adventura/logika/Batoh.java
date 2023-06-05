@@ -5,7 +5,17 @@ import java.util.Map;
 import java.util.List;
 import java.util.ArrayList;
 
-
+/*******************************************************************************
+ * Třída Batoh - popisuje batoh.
+ *
+ *  Tato třída je součástí textové hry.
+ *
+ *  "Batoh" reprezentuje "úložný prostor" pro sebrané věci (příkazem seber).
+ *  Věci jsou přenositelné. Jsou vkládány do batohu. Lze je z batohu odebrat.
+ *
+ * @author    Madina Burgueva
+ * @version   pro letní semestr 2023/2024
+ */
 public class Batoh implements ISeznamVeci { // batoh - backpack
     private static Batoh instance = null;
     private List<Vec> seznamVeci; //listOfThings
@@ -45,7 +55,7 @@ public class Batoh implements ISeznamVeci { // batoh - backpack
         public boolean obsahujeVec(String nazev) { //containsThing
             return veci.containsKey(nazev);
         }
-        public Vec vlozVec(Vec vec) { //insertTheThing
+        public Vec seber(Vec vec) { //insertTheThing
             veci.put(vec.getNazev(), vec); //things.put(getName), thing
             if (veci.containsKey(vec.getNazev()))
                 return vec;

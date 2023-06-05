@@ -26,6 +26,10 @@ public class Hra implements IHra { //Game
         platnePrikazy.vlozPrikaz(new PrikazNapoveda(platnePrikazy)); //validStatements.insertStatement()
         platnePrikazy.vlozPrikaz(new PrikazJdi(herniPlan)); //validStatements.insertStatement()
         platnePrikazy.vlozPrikaz(new PrikazKonec(this)); //validStatements.insertStatement()
+        platnePrikazy.vlozPrikaz(new PrikazSeber(herniPlan));
+        platnePrikazy.vlozPrikaz(new PrikazPoloz(herniPlan));
+        platnePrikazy.vlozPrikaz(new PrikazZamkni(herniPlan));
+        platnePrikazy.vlozPrikaz(new PrikazOdemkni(herniPlan));
     }
 
     /**
@@ -33,7 +37,7 @@ public class Hra implements IHra { //Game
      */
     public String vratUvitani() { //returnWelcome
         return "Vítejte!\n" +
-               "Toto je příběh o Červené Karkulce, babičce a vlkovi.\n" +
+               "Chystáš se na dovolenou do Řecka, musíš dorazit na letiště.\n" +
                "Napište 'nápověda', pokud si nevíte rady, jak hrát dál.\n" +
                "\n" +
                herniPlan.getAktualniProstor().dlouhyPopis(); //gamePlan.getCurrentSpace().longDescription

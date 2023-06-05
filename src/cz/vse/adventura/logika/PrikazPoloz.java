@@ -1,5 +1,12 @@
 package cz.vse.adventura.logika;
 
+/**
+ *  Třída PrikazPoloz implementuje pro hru příkaz poloz.
+ *  Tato třída je součástí jednoduché textové hry.
+ *
+ *@author     Madina Burgueva
+ *@version    pro školní rok 2022/2023
+ */
 public class PrikazPoloz implements IPrikaz {
     private static final String NAZEV = "polož";
     private HerniPlan plan;
@@ -30,7 +37,7 @@ public class PrikazPoloz implements IPrikaz {
 
         try {
             Vec vec = plan.getBatoh().odeberVec(nazev);
-            plan.getAktualniProstor().vlozVec(vec); //insertThing
+            plan.getAktualniProstor().seber(vec); //insertThing
             return "Věc '" + nazev + "' byla položena v aktuálním prostoru.";
         } catch (IllegalArgumentException exception) {
             return "Tuto věc v batohu nemáš.";

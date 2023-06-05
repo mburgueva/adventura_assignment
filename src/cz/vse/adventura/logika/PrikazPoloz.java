@@ -20,14 +20,7 @@ public class PrikazPoloz implements IPrikaz {
 
     @Override
     public String provedPrikaz(String... parametry) {
-        return null;
-    }
 
-    /**
-     * Provádí příkaz "polož". Zkouší odebrat věci z batohu a položit je někam.
-     */
-    @Override
-    public String proved(String... parametry) {
         if (parametry.length == 0) {
             // pokud chybí druhé slovo (název věci), tak ....
             return "Co mám položit? Musíš napsat název věci, kterou mám položit.";
@@ -36,12 +29,27 @@ public class PrikazPoloz implements IPrikaz {
         String nazev = parametry[0];
 
         try {
-            Vec vec = plan.getBatoh().odeberVec(nazev);
-            plan.getAktualniProstor().seberVec(vec); //insertThing
-            return "Věc '" + nazev + "' byla položena v aktuálním prostoru.";
+            for (Vec vec : this.plan.getBatoh().getObsah()){
+                if(vec.getNazev().equals(nazev)){
+                    this.plan.getAktualniProstor().poloz(vec);
+                    this.plan.getBatoh().odeberVec(vec);
+                    return "Věc '" + nazev + "' byla položena v aktuálním prostoru.";
+                }
+
+            }
+
+            return "Tuto věc v batohu nemáš.";
         } catch (IllegalArgumentException exception) {
             return "Tuto věc v batohu nemáš.";
         }
+    }
+
+    /**
+     * Provádí příkaz "polož". Zkouší odebrat věci z batohu a položit je někam.
+     */
+    @Override
+    public String proved(String... parametry) {return null;
+
     }
 
     /**

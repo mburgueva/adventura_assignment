@@ -32,6 +32,12 @@ public class PrikazOdemkni implements IPrikaz {
      * @return zpráva, kterou vypíše hra hráči
      */
     public String proved(String... parametry) {
+        return null;
+    }
+
+    @Override
+    public String provedPrikaz(String... parametry) {
+
         if (parametry.length == 0) {
             // pokud chybí druhé slovo (sousední prostor), tak ....
             return "Co mám odemknout? Musíš zadat jméno prostoru";
@@ -45,23 +51,19 @@ public class PrikazOdemkni implements IPrikaz {
             return "Odsud nevedou dveře do prostoru " + prostor + "!"; //There's no door into the area from here.
         } else {
             if (sousedniProstor.getJeZamceno()) { //isLocked
-                if (plan.getBatoh().obsahujeVec("klic")) { //getTheKey
-                    sousedniProstor.zamknout(); //lock
+                if (plan.getBatoh().obsahujeVec("klíče")) { //getTheKey
+                    sousedniProstor.odemknout(); //unlock
                     return "Podařilo se ti otevřít dveře do prostoru " // You managed to open the door to the space
                             + prostor + ". Nyní je cesta volná."; //Now the way is clear
                 } else {
                     return "Pro odemčení dveří do " + prostor + " potřebuješ mít " //To unlock the door you will need the keys
-                            + "u sebe klíč.";
+                            + "u sebe klíče.";
                 }
             } else {
                 return "Místnost " + prostor + " již byla odemčená!"; //The room was unlocked
             }
         }
-    }
 
-    @Override
-    public String provedPrikaz(String... parametry) {
-        return null;
     }
 
     /**

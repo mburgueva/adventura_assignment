@@ -47,7 +47,7 @@ public class PrikazZamkni implements IPrikaz {
         else {
             if (!sousedniProstor.getJeZamceno()) { //isn't locked
                 if (plan.getBatoh().obsahujeVec("klic")) { //getTheKey
-                    sousedniProstor.odemknout(); //unlock
+                    sousedniProstor.zamknout(); //lock
                     return "Podařilo se ti zavřit dveře do prostoru  "
                             + prostor + ". Nyní cesta není volná.";
                 }

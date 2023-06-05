@@ -40,13 +40,16 @@ class PrikazJdi implements IPrikaz { //StatementGo
 
         // zkoušíme přejít do sousedního prostoru
         Prostor sousedniProstor = plan.getAktualniProstor().vratSousedniProstor(smer); //nextSpace getCurrentSpace
-
         if (sousedniProstor == null) {
             return "Tam se odsud jít nedá!"; //You can't go there from here.
         }
+
         else {
-            plan.setAktualniProstor(sousedniProstor);
-            return sousedniProstor.dlouhyPopis();
+            if (!sousedniProstor.getJeZamceno()) {
+                plan.setAktualniProstor(sousedniProstor);
+                return sousedniProstor.dlouhyPopis();
+            }
+            else{return "The room is locked";}
         }
     }
 

@@ -63,11 +63,10 @@ public class Batoh implements ISeznamVeci { // batoh - backpack
                 return vec;
             return null;
         }
-        public Vec odeberVec(String nazev) { //removeTheThing
-            return veci.remove(nazev);
-        }
+
         public Vec odeberVec(Vec vec) { //removeTheThing
-            return veci.remove(vec.getNazev());
+            veci.remove(vec.getNazev());
+            return null;
         }
 
         public List<Vec> getObsah(){

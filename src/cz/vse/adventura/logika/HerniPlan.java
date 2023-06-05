@@ -90,7 +90,7 @@ public class HerniPlan { //GamePlan
         obyvak.poloz(new Vec("gauč", false));
         obyvak.poloz(new Vec("konferenční_stolek", false));
         obyvak.poloz(new Vec("TV", false));
-        predsin.poloz(new Vec("kufr", true)); //suitcase, can be taken
+        predsin.poloz(new Vec("pivo", true)); //suitcase, can be taken
         predsin.poloz(new Vec("klíče", true)); // keys from the apartment, can be taken
         batoh = new Batoh();
         aktualniProstor = loznice;  // hra začíná v ložnici // currentSpace = bedroom
@@ -124,7 +124,20 @@ public class HerniPlan { //GamePlan
     public Batoh getBatoh() {
         return this.batoh;
     } //backpack
-    public Vec seberVec(String nazev) {
-        return null;
-    } // idk if it is right, from PrikaSeber
-}
+    public void seberVec(String nazev) {
+        for (Vec vec : aktualniProstor.getVeciVProstoru()){
+            if(vec.getNazev().equals(nazev)){
+                if(vec.isJePrenosna()) {
+                aktualniProstor.seberVec(vec);
+                batoh.seberVec(vec);
+                }
+                else{throw new IllegalStateException("Item can't be picked up");}
+                return;
+            }
+        }
+
+        throw new IllegalStateException("The item is not in the room");
+
+        }
+    }
+

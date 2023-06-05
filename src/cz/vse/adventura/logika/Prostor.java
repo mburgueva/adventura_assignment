@@ -188,6 +188,16 @@ public class Prostor { //Space
         }
     }
 
+    public boolean obsahujeVec(String nazev) {
+        for (Vec vec : this.getVeciVProstoru()) {
+            if (vec.getNazev().equals(nazev)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
     /**
      * Vrací kolekci obsahující prostory, se kterými tento prostor sousedí.
      * Takto získaný seznam sousedních prostor nelze upravovat (přidávat,

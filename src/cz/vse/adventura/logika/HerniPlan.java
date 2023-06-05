@@ -59,8 +59,8 @@ public class HerniPlan { //GamePlan
         Prostor bus119 = new Prostor("bus_119", "bus 119, který jede na letiště", false);
         Prostor bus225 = new Prostor("bus_225", "bus 225, který jede do Velké Ohrady", false);
         Prostor spatnaCesta = new Prostor("špatná_cesta", "Pozor, špatná cesta, vrať se zpátky", false); //wrongWay
-        Prostor terminal1 = new Prostor("terminal_1", "terminal s lety mimo EU", false);
-        Prostor terminal2 = new Prostor("terminal_2", "terminal s lety po EU", false);
+        Prostor terminal1 = new Prostor("terminal1", "terminal s lety mimo EU", false);
+        Prostor terminal2 = new Prostor("terminal2", "terminal s lety po EU", false);
 
         prohravaciProstor1 = spatnaCesta;
         prohravaciProstor2 = vecerka;
@@ -84,7 +84,6 @@ public class HerniPlan { //GamePlan
         bus119.setVychod(autobusovaZastavka);
         bus119.setVychod(terminal1);
         terminal1.setVychod(terminal2); // nelze se vratit zpatky do busu
-        terminal2.setVychod(terminal1);
 
         //věci, které lze vložit do batohu
         loznice.poloz(new Vec("postel", false));

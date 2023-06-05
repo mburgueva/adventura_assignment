@@ -1,66 +1,94 @@
 package cz.vse.adventura.logika;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import static org.junit.Assert.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-/*******************************************************************************
- * Testovací třída HraTest slouží ke komplexnímu otestování
- * třídy Hra
- *
- * @author    Jarmila Pavlíčková
- * @version  pro školní rok 2016/2017
+/**
+ * The test class HraTest.
  */
-public class HraTest {
-    private Hra hra1;
+public class HraTest
+{
+    private Hra hra;
 
-    //== Datové atributy (statické i instancí)======================================
-
-    //== Konstruktory a tovární metody =============================================
-    //-- Testovací třída vystačí s prázdným implicitním konstruktorem ----------
-
-    //== Příprava a úklid přípravku ================================================
-
-    /***************************************************************************
-     * Metoda se provede před spuštěním každé testovací metody. Používá se
-     * k vytvoření tzv. přípravku (fixture), což jsou datové atributy (objekty),
-     * s nimiž budou testovací metody pracovat.
+    /**
+     * Default constructor for test class HraTest
      */
-    @BeforeEach
-    public void setUp() {
-        hra1 = new Hra();
+    public HraTest()
+    {
     }
 
-    /***************************************************************************
-     * Úklid po testu - tato metoda se spustí po vykonání každé testovací metody.
+    /**
+     * Sets up the test fixture.
+     *
+     * Called before every test case method.
      */
-    @AfterEach
-    public void tearDown() {
+    @Before
+    public void setUp()
+    {
+        hra = new Hra();
     }
 
-    //== Soukromé metody používané v testovacích metodách ==========================
+    /**
+     * Tears down the test fixture.
+     *
+     * Called after every test case method.
+     */
+    @After
+    public void tearDown()
+    {
+    }
 
-    //== Vlastní testovací metody ==================================================
-
-    /***************************************************************************
-     * Testuje průběh hry, po zavolání každěho příkazu testuje, zda hra končí
-     * a v jaké aktuální místnosti se hráč nachází.
-     * Při dalším rozšiřování hry doporučujeme testovat i jaké věci nebo osoby
-     * jsou v místnosti a jaké věci jsou v batohu hráče.
-     * 
+    /**
+     * Test method for {@link cz.vse.adventura.logika.Hra#vratUvitani()}.
      */
     @Test
-    public void testPrubehHry() {
-        assertEquals("domeček", hra1.getHerniPlan().getAktualniProstor().getNazev());
-        hra1.zpracujPrikaz("jdi les");
-        assertEquals(false, hra1.konecHry());
-        assertEquals("les", hra1.getHerniPlan().getAktualniProstor().getNazev());
-        hra1.zpracujPrikaz("jdi hluboký_les");
-        assertEquals(false, hra1.konecHry());
-        assertEquals("hluboký_les", hra1.getHerniPlan().getAktualniProstor().getNazev());
-        hra1.zpracujPrikaz("konec");
-        assertEquals(true, hra1.konecHry());
+    public void testVratUvitani()
+    {
+        String uvitani = hra.vratUvitani();
+        assertNotNull(uvitani);
+        assertFalse(uvitani.isEmpty());
+    }
+
+    /**
+     * Test method for {@link cz.vse.adventura.logika.Hra#vratEpilog()}.
+     */
+    @Test
+    public void testVratEpilog()
+    {
+        String epilog = hra.vratEpilog();
+        assertNotNull(epilog);
+        assertFalse(epilog.isEmpty());
+    }
+
+    /**
+     * Test method for {@link cz.vse.adventura.logika.Hra#zpracujPrikaz(java.lang.String)}.
+     */
+    @Test
+    public void testZpracujPrikaz()
+    {
+        String vysledek1 = hra.zpracujPrikaz("napoveda");
+        assertNotNull(vysledek1);
+        assertFalse(vysledek1.isEmpty());
+
+        String vysledek2 = hra.zpracujPrikaz("jdi neexistujici_mistnost");
+        assertNotNull(vysledek2);
+        assertFalse(vysledek2.isEmpty());
+
+        String vysledek3 = hra.zpracujPrikaz("konec");
+        assertNotNull(vysledek3);
+        assertFalse(vysledek3.isEmpty());
+        assertTrue(hra.konecHry());
+    }
+
+    /**
+     * Test method for {@link cz.vse.adventura.logika.Hra#getHerniPlan()}.
+     */
+    @Test
+    public void testGetHerniPlan()
+    {
+        HerniPlan herniPlan = hra.getHerniPlan();
+        assertNotNull(herniPlan);
     }
 }

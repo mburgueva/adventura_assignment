@@ -10,14 +10,16 @@ package cz.vse.adventura.logika;
 class PrikazJdi implements IPrikaz { //StatementGo
     private static final String NAZEV = "jdi"; //go
     private HerniPlan plan; //GamePlan
+    private  Hra hra;
     
     /**
     *  Konstruktor třídy
     *  
     *  @param plan herní plán, ve kterém se bude ve hře "chodit" 
     */    
-    public PrikazJdi(HerniPlan plan) {
+    public PrikazJdi(HerniPlan plan, Hra hra) {
         this.plan = plan;
+        this.hra = hra;
     } //StatementGo
 
     /**
@@ -47,6 +49,15 @@ class PrikazJdi implements IPrikaz { //StatementGo
         else {
             if (!sousedniProstor.getJeZamceno()) {
                 plan.setAktualniProstor(sousedniProstor);
+                if(plan.getAktualniProstor().equals(plan.getProhravaciProstor1()) || plan.getAktualniProstor().equals(plan.getProhravaciProstor2())){
+                    hra.setKonecHry(true);
+                    return "You have lost the game";
+                }
+                if(plan.getAktualniProstor().equals(plan.getViteznyProstor()))
+                {
+                    hra.setKonecHry(true);
+                    return "Congratulations, you have won the game";
+                }
                 return sousedniProstor.dlouhyPopis();
             }
             else{return "The room is locked";}

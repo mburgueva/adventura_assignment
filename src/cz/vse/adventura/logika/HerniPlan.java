@@ -31,7 +31,9 @@ public class HerniPlan { //GamePlan
     } //listOfThings
     private Prostor aktualniProstor; //currentSpace
     private Prostor viteznyProstor; //winningSpace
-    private Prostor prohravaciProstor; //losingSpace
+    private Prostor prohravaciProstor1; //losingSpace
+    private Prostor prohravaciProstor2; //losingSpace
+
     public Batoh batoh; //backpack
     
      /**
@@ -60,8 +62,8 @@ public class HerniPlan { //GamePlan
         Prostor terminal1 = new Prostor("terminal_1", "terminal s lety mimo EU", false);
         Prostor terminal2 = new Prostor("terminal_2", "terminal s lety po EU", false);
 
-        prohravaciProstor = spatnaCesta;
-        prohravaciProstor = vecerka;
+        prohravaciProstor1 = spatnaCesta;
+        prohravaciProstor2 = vecerka;
         viteznyProstor = terminal2;
 
         // přiřazují se průchody mezi prostory (sousedící prostory)
@@ -118,8 +120,11 @@ public class HerniPlan { //GamePlan
     public Prostor getViteznyProstor() {
         return viteznyProstor;
     }
-    public Prostor getProhravaciProstor() {
-        return prohravaciProstor;
+    public Prostor getProhravaciProstor1() {
+        return prohravaciProstor1;
+    }
+    public Prostor getProhravaciProstor2() {
+        return prohravaciProstor2;
     }
     public Batoh getBatoh() {
         return this.batoh;

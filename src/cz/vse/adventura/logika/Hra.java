@@ -24,7 +24,7 @@ public class Hra implements IHra { //Game
         herniPlan = new HerniPlan(); //gamePlan
         platnePrikazy = new SeznamPrikazu(); //validInstructions = ListOfStatements
         platnePrikazy.vlozPrikaz(new PrikazNapoveda(platnePrikazy)); //validStatements.insertStatement()
-        platnePrikazy.vlozPrikaz(new PrikazJdi(herniPlan)); //validStatements.insertStatement()
+        platnePrikazy.vlozPrikaz(new PrikazJdi(herniPlan, this)); //validStatements.insertStatement()
         platnePrikazy.vlozPrikaz(new PrikazKonec(this)); //validStatements.insertStatement()
         platnePrikazy.vlozPrikaz(new PrikazSeber(herniPlan));
         platnePrikazy.vlozPrikaz(new PrikazPoloz(herniPlan));
